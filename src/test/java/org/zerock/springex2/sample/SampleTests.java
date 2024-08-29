@@ -9,6 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import javax.sql.DataSource;
+
+import java.sql.Connection;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @Log4j2
@@ -22,10 +26,21 @@ public class SampleTests {
     private SampleService sampleService;
     //빈이 존재하면 여기에 주입해달라.
 
+    @Autowired
+    private DataSource dataSource;
 
     @Test
     public void testService1() {
         log.info(sampleService);
         Assertions.assertNotNull(sampleService);
+    }
+
+    @Test
+    public void testConnection() throws Exception{
+        Connection connection = dataSource.getConnection();
+        log.info(connection);
+
+        Assertions.assertNotNull(connection);
+        connection.close();
     }
 }
