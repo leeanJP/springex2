@@ -1,0 +1,33 @@
+의존성 주입 - DI (Dependency Injection)
+
+
+의존성 - 하나의 객체가 자신이 해야하는 일을 하기 위해서
+다른 객체의 도움이 필수적인 관계
+
+스프링 프레임워크에서는 싱글톤 패턴이나 객체 생성 후 사용하는 것을
+직접 지원한다.
+객체 간의 의존관계를 Spring이 관리하는 것을 의미한다.
+이를통해 객체 간의 결합도를 낮추고 코드의 재사용성을 높혀준다.
+
+스프링이 관리하는 객체들은 빈(Bean) 이라고 불린다
+그리고 빈을 관리하는 설정파일 root-context.xml
+
+스프링에서 빈(Bean) 객체들을 관리하기 위해서 ApplicationContext(스프링 컨테이너)
+객체를 활용한다.
+
+Constructor Injection : 생성자를 통해 의존성 주입
+Setter Injection : Setter 메소드를 통해 의존성 주입
+Field Injection : @Autowired를 사용해 의존성 주입
+
+
+root-context에서 bean으로 관리하던 방식은 spring 2.5버전 이전의 방식
+서블릿에서도 @WebServlet , @WebFilter 와 같이 어노테이션으로 관리
+Spring에서도 어노테이션으로 빈을 관리함
+
+@Controller  : MVC 컨트롤러
+@Service     : 서비스 계층의 객체
+@Repository  : DAO 같은 객체
+@Component   : 일반 객체나 유틸리티 객체
+
+
+
