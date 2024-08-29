@@ -62,8 +62,12 @@ MyBatis  - SQL Mapping Framework
 간소화 해주는 장점이 있다.
 
 
+디스패쳐 서블릿
+Dispatcher Servlet 이란 HTTP 프로토콜로 들어오는 모든 요청을 가장 먼저 받아
+적합한 컨트롤러에 위임해주는 프론트 컨트롤러
 
-
+객체 지향에서 모든 흐름이 하나의 객체를 통해서 진행되는 패턴을 파사드(Facade) 패턴 이라고 한다.
+웹 구조에서는 Front - Controller 이라고 부른다.
 
 
 
