@@ -55,4 +55,50 @@ public class TodoController {
         return "redirect:/todo/list";
     }
 
+
+    @GetMapping({"/read" ,"/modify"})
+    public void read(Long tno, Model model){
+        TodoDTO dto = todoService.getOne(tno);
+        log.info("DTO ::: " + dto);
+        model.addAttribute("dto", dto);
+
+    }
+
+
+    @PostMapping("/modify")
+    public String modify(@Valid TodoDTO todoDTO,
+                         BindingResult bindingResult,
+                         RedirectAttributes redirectAttributes){
+        log.info("POST todo modify....");
+
+        if(bindingResult.hasErrors()){
+            log.info("has errors..");
+            redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
+            redirectAttributes.addAttribute("tno", todoDTO.getTno());
+            return "redirect:/todo/modify";
+        }
+
+        log.info(todoDTO);
+        todoService.modify(todoDTO);
+
+        return "redirect:/todo/list";
+
+
+    }
+
+
+    @PostMapping("/remove")
+    public String remove(Long tno, RedirectAttributes redirectAttributes){
+
+        log.info("REMOVE todo register....");
+        log.info(tno);
+
+        todoService.delete(tno);
+        return "redirect:/todo/list";
+
+    }
+
+
+
+
 }
