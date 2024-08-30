@@ -70,6 +70,27 @@ Dispatcher Servlet 이란 HTTP 프로토콜로 들어오는 모든 요청을 가
 웹 구조에서는 Front - Controller 이라고 부른다.
 
 
+Controller 에서 주로 사용되는 리턴 타입
+void , 문자열 , 객체나 배열, 기본 자료형, ResponseEntity
+
+//컨트롤러 선언부
+@Controller : 스프링 빈으로 처리됨을 명시
+@RestController : REST 방식의 처리를 위한 컨트롤러
+@RequestMapping : 특정 URL 패턴에 맞는 컨트롤러임을 명시
+
+//메소드 선언부
+@GetMapping @PostMapping @DeleteMapping @PutMapping
+@RequestMapping : Get/Post 방식 모두를 지원하는 경우 사용
+@ResponseBody : REST방식에서 사용
+
+//메소드 파라미터
+@RequestParam : Request 에 있는 특정한 이름의 데이터를 파리미로 받아서 처리하는 경우
+@PathVariable : URL 경로의 일부를 변수로 삼아서 처리하기 위해서 사용
+@ModelAttribute : 해당 파라미터는 반드시 Model 에 포함되어서 다시 뷰로 전달됨을 명시
+@SessionAttribute @Valid @RequestBody
+
+스프링 MVC 예외처리
+
 
 
 
