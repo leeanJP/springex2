@@ -13,6 +13,11 @@
         select * from tbl_todo order by tno desc
     </select>
 
+    <select id="selectList" resultType="org.zerock.springex2.domain.TodoVO">
+        select * from tbl_todo order by tno desc
+        limit #{skip} , #{size}
+    </select>
+
     <select id="selectOne" resultType="org.zerock.springex2.domain.TodoVO">
         select * from tbl_todo where tno = #{tno}
     </select>
@@ -25,5 +30,9 @@
     <delete id="delete">
         delete from tbl_todo where tno = #{tno}
     </delete>
+
+    <select id="getCount" resultType="int">
+        select count(tno) from tbl_todo
+    </select>
 
 </mapper>

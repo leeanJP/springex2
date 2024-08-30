@@ -87,16 +87,16 @@
                         </div>
 
                         <script>
-                            document.querySelector(".btn-primary").addEventListener("click", function(e){
-                                self.location = "/todo/modify?tno="+${dto.tno}
-                            },false)
-
-
                             <%--document.querySelector(".btn-primary").addEventListener("click", function(e){--%>
-
-                            <%--    self.location = `/todo/modify?tno=${dto.tno}&${pageRequestDTO.link}`--%>
-
+                            <%--    self.location = "/todo/modify?tno="+${dto.tno}--%>
                             <%--},false)--%>
+
+
+                            document.querySelector(".btn-primary").addEventListener("click", function(e){
+
+                                self.location = `/todo/modify?tno=${dto.tno}&${pageRequestDTO.link}`
+
+                            },false)
 
 
 
