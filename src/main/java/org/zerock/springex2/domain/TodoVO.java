@@ -1,24 +1,18 @@
-package org.zerock.springex2.dto;
+package org.zerock.springex2.domain;
 
 import lombok.*;
 
-import javax.validation.constraints.Future;
-import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
+
+@Getter
 @Builder
-@Data
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-public class TodoDTO {
-
+public class TodoVO {
     private Long tno;
-    @NotEmpty
     private String title;
-    @Future
     private LocalDate dueDate;
     private boolean finished;
-    @NotEmpty
     private String writer;
-
 }
